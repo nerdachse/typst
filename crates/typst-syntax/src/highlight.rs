@@ -376,12 +376,12 @@ pub fn highlight_html(root: &SyntaxNode) -> String {
 fn highlight_html_impl(html: &mut String, node: &LinkedNode) {
     let mut span = false;
     if let Some(tag) = highlight(node) {
-        if tag != Tag::Error {
-            span = true;
-            html.push_str("<span class=\"");
-            html.push_str(tag.css_class());
-            html.push_str("\">");
-        }
+        //if tag != Tag::Error {
+        span = true;
+        html.push_str("<span class=\"");
+        html.push_str(tag.css_class());
+        html.push_str("\">");
+        //}
     }
 
     let text = node.text();
